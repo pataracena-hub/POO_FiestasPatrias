@@ -19,6 +19,9 @@ public class BebidaAlcoholica extends Bebida {
     }
 
     public void setGradosAlcohol(double gradosAlcohol) {
+        if( double gradosAlcohol < 0.5 && double gradosAlcohol > 45){
+            throw new IllegalArgumentException("Debe encontrarse en el rango entre 0,5 y 45.");
+        }
         this.gradosAlcohol = gradosAlcohol;
     }
 
