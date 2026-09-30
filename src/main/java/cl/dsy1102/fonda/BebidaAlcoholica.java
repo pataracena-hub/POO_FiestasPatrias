@@ -4,14 +4,16 @@ public class BebidaAlcoholica extends Bebida implements ConsumoResponsable {
     private double gradosAlcohol;
     private boolean certificada;
     private boolean ventaRestringida;
-    private int limiteUnidadesCliente;
+    public static final int MAX_UNIDADES = 3;
 
-    public BebidaAlcoholica(String nombre, int volumenML, int stock,double gradosAlcohol, boolean certificada, boolean ventaRestringida, int limiteUnidadesCliente){
+    public BebidaAlcoholica(String nombre, int volumenML, int stock, double gradosAlcohol, boolean certificada, boolean ventaRestringida){
+        if(gradosAlcohol <= 0.5 || gradosAlcohol >= 45) {
+            throw new IllegalArgumentException("ERROR!!, los grados de alcohol deben estar entre 0.5 y 45");
+        }
         super(nombre, volumenML, stock);
         this.gradosAlcohol = gradosAlcohol;
         this.certificada = certificada;
         this.ventaRestringida = ventaRestringida;
-        this.limiteUnidadesCliente = limiteUnidadesCliente;
     }
 
     public double getGradosAlcohol() {
@@ -48,11 +50,45 @@ public class BebidaAlcoholica extends Bebida implements ConsumoResponsable {
 
     @Override
     public double calcularPrecio() {
-        return 0;
+        double precio = 3500;
+        if(!certificada){
+            precio = precio * 1.2;
+        }
+        return precio;
     }
 
     @Override
     public String obtenerDetalle() {
-        return "";
+        return ("======================== \n" +
+                "Nombre:                %s\n" +
+                "Volumen(ml):           %d\n" +
+                "Stock:                 %d\n" +
+                "Grados Alcohol:      %.1f\n" +
+                "Certificada            %s\n" +
+                "Restringida:           %s\n" +
+                "Precio:             $%.0f\n" +
+                "========================\n").formatted(getNombre(),getVolumenML(),getStock(),getGradosAlcohol(),isCertificada(),isVentaRestringida(),calcularPrecio());
     }
+
+    @Override
+    public boolean tieneVentaRestringida() {
+        return this.ventaRestringida;
+    }
+
+    @Override
+    public void restringirVenta() {
+        this.ventaRestringida = true;
+    }
+
+    @Override
+    public boolean superaLimite(int cantidad) {
+        return cantidad > MAX_UNIDADES;
+    }
+
+
+
+
+
 }
+
+
