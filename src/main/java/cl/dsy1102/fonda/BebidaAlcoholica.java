@@ -1,6 +1,6 @@
 package cl.dsy1102.fonda;
 
-public class BebidaAlcoholica extends Bebida {
+public class BebidaAlcoholica extends Bebida implements ConsumoResponsable {
     private double gradosAlcohol;
     private boolean certificada;
     private boolean ventaRestringida;
