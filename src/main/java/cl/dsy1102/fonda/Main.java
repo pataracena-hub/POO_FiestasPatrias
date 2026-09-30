@@ -8,14 +8,23 @@ package cl.dsy1102.fonda;
  * la interfaz ConsumoResponsable y la clase GestorFonda.
  */
 public class Main {
-
     public static void main(String[] args) {
-        // TODO 1: instanciar las cuatro bebidas con los datos del enunciado.
-        // TODO 2: marcar la bebida alcoholica 'Chicha' con la venta restringida.
-        // TODO 3: registrarlas todas en el gestor.
-        // TODO 4: solicitar las cuatro ventas indicadas en el enunciado.
-        // TODO 5: buscar por nombre "Chicha" y listar todas las bebidas.
+        System.out.println("========== INICIANDO PRUEBAS DE BEBIDAS ==========\n");
 
-        System.out.println("Proyecto listo. Comienza por la clase Bebida.");
+        BebidaAlcoholica chichaAlcohol = new BebidaAlcoholica("Chicha", 1000, 40, 12.0, false, true);
+        BebidaAlcoholica piscoSour = new BebidaAlcoholica("Pisco_Sour", 500, 25, 18.0, true, false);
+        BebidaSinAlcohol chichaSinAlcohol = new BebidaSinAlcohol("Chicha", 1000, 60, 95);
+        BebidaSinAlcohol moteConHuesillo = new BebidaSinAlcohol("Mote", 400, 50, 70);
+
+        System.out.println("[SOLUCION] Objetos instanciados correctamente!!");
+        System.out.println("============= APLICAR RESTRICCION ==================");
+        chichaAlcohol.restringirVenta();
+        System.out.println("Estado de Restriccion de la chicha: " + chichaAlcohol.tieneVentaRestringida());
+
+        System.out.println("============ VISUALIZACION DETALLE ==============");
+        System.out.println(chichaAlcohol.obtenerDetalle());
+        System.out.println(chichaSinAlcohol.obtenerDetalle());
+        System.out.println(piscoSour.obtenerDetalle());
+        System.out.println(moteConHuesillo.obtenerDetalle());
     }
 }

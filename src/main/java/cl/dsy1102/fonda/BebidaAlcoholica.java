@@ -7,10 +7,11 @@ public class BebidaAlcoholica extends Bebida implements ConsumoResponsable {
     public static final int MAX_UNIDADES = 3;
 
     public BebidaAlcoholica(String nombre, int volumenML, int stock, double gradosAlcohol, boolean certificada, boolean ventaRestringida){
+        super(nombre, volumenML, stock);
         if(gradosAlcohol <= 0.5 || gradosAlcohol >= 45) {
             throw new IllegalArgumentException("ERROR!!, los grados de alcohol deben estar entre 0.5 y 45");
         }
-        super(nombre, volumenML, stock);
+
         this.gradosAlcohol = gradosAlcohol;
         this.certificada = certificada;
         this.ventaRestringida = ventaRestringida;
@@ -38,14 +39,6 @@ public class BebidaAlcoholica extends Bebida implements ConsumoResponsable {
 
     public void setVentaRestringida(boolean ventaRestringida) {
         this.ventaRestringida = ventaRestringida;
-    }
-
-    public int getLimiteUnidadesCliente() {
-        return limiteUnidadesCliente;
-    }
-
-    public void setLimiteUnidadesCliente(int limiteUnidadesCliente) {
-        this.limiteUnidadesCliente = limiteUnidadesCliente;
     }
 
     @Override
