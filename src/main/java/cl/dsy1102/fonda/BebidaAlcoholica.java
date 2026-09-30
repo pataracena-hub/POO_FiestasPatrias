@@ -8,10 +8,6 @@ public class BebidaAlcoholica extends Bebida implements ConsumoResponsable {
 
     public BebidaAlcoholica(String nombre, int volumenML, int stock, double gradosAlcohol, boolean certificada, boolean ventaRestringida){
         super(nombre, volumenML, stock);
-        if(gradosAlcohol <= 0.5 || gradosAlcohol >= 45) {
-            throw new IllegalArgumentException("ERROR!!, los grados de alcohol deben estar entre 0.5 y 45");
-        }
-
         this.gradosAlcohol = gradosAlcohol;
         this.certificada = certificada;
         this.ventaRestringida = ventaRestringida;
@@ -55,15 +51,15 @@ public class BebidaAlcoholica extends Bebida implements ConsumoResponsable {
 
     @Override
     public String obtenerDetalle() {
-        return ("======================== \n" +
-                "Nombre:                %s\n" +
-                "Volumen(ml):           %d\n" +
-                "Stock:                 %d\n" +
-                "Grados Alcohol:      %.1f\n" +
-                "Certificada            %s\n" +
-                "Restringida:           %s\n" +
-                "Precio:             $%.0f\n" +
-                "========================\n").formatted(getNombre(),getVolumenML(),getStock(),getGradosAlcohol(),isCertificada(),isVentaRestringida(),calcularPrecio());
+        return ("=====================================\n" +
+                "Nombre:                 %s\n" +
+                "Volumen(ml):            %d\n" +
+                "Stock:                  %d\n" +
+                "Grados Alcohol:         %.1f\n" +
+                "Certificada             %s\n" +
+                "Restringida:            %s\n" +
+                "Precio:                 $%.0f\n" +
+                "=====================================\n").formatted(getNombre(),getVolumenML(),getStock(),getGradosAlcohol(),isCertificada(),isVentaRestringida(),calcularPrecio());
     }
 
     @Override

@@ -27,13 +27,13 @@ public class BebidaSinAlcohol extends Bebida {
 
     @Override
     public String obtenerDetalle() {
-        return ("============================================\n" +
-                "Nombre:           %s\n" +
-                "Volumen(ml):      %s\n" +
-                "Stock:            %d\n" +
-                "Azucar/L(g):      %d\n" +
-                "Precio:           $%.0f\n" +
-                "============================================\n").formatted(getNombre(), getVolumenML(), getStock(), getAzucarPorLitro(), calcularPrecio());
+        return ("===================================\n" +
+                "Nombre:               %s\n" +
+                "Volumen(ml):          %s\n" +
+                "Stock:                %d\n" +
+                "Azucar/L(g):          %d\n" +
+                "Precio:               $%.0f\n" +
+                "===================================\n").formatted(getNombre(), getVolumenML(), getStock(), getAzucarPorLitro(), calcularPrecio());
     }
 
 }
