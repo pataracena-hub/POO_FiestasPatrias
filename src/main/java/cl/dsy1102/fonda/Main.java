@@ -1,12 +1,5 @@
 package cl.dsy1102.fonda;
 
-/**
- * Punto de entrada de la Tarea Fiestas Patrias - Fonda San Belarmino.
- *
- * Revisa el enunciado en README.md. Debes crear, en este mismo paquete,
- * las clases del diagrama: Bebida, BebidaAlcoholica, BebidaSinAlcohol,
- * la interfaz ConsumoResponsable y la clase GestorFonda.
- */
 public class Main {
     public static void main(String[] args) {
         System.out.println("========== INICIANDO PRUEBAS DE BEBIDAS ==========\n");
@@ -28,3 +21,5 @@ public class Main {
         System.out.println(moteConHuesillo.obtenerDetalle());
     }
 }
+
+//terminado transitorio

@@ -5,3 +5,5 @@ public interface ConsumoResponsable {
     void restringirVenta();
     boolean superaLimite(int cantidad);
 }
+
+//terminado
